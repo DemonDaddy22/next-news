@@ -7,7 +7,7 @@ type Params = {
   }>;
 };
 
-const NewsDetailsPage: React.FC<PageProps<Params>> = ({ params }) => {
+const NewsDetailsPage: React.FC<ComponentProps<Params>> = ({ params }) => {
   const { slug } = use(params);
   return <h1 className={HEADER_TEXT}>News Details - {slug}</h1>;
 };

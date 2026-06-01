@@ -1,1 +1,1 @@
-type PageProps<T extends object = Record<string, never>> = T;
+type ComponentProps<T extends object = Record<string, never>> = T;

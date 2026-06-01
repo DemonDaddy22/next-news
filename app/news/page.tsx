@@ -1,7 +1,7 @@
 import { HEADER_TEXT } from '@/constants/styles';
 import Link from 'next/link';
 
-const NewsPage: React.FC<PageProps> = () => {
+const NewsPage: React.FC<ComponentProps> = () => {
   return (
     <>
       <h1 className={HEADER_TEXT}>News</h1>
