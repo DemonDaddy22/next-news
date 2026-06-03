@@ -1,17 +1,7 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import NavHeader from '@/components/NavHeader';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import { FONTS } from '@/constants/fonts';
 
 export const metadata: Metadata = {
   title: 'Next News',
@@ -24,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en' className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className='min-h-full flex flex-col flex-1 items-center p-4 bg-zinc-50 font-sans dark:bg-black'>
+    <html lang='en' className={`${FONTS.IBS} h-full antialiased`}>
+      <body className='font-normal font-body min-h-full flex flex-col flex-1 items-center p-4 bg-zinc-50 dark:bg-black'>
         <NavHeader />
         <main className='py-10'>{children}</main>
       </body>
