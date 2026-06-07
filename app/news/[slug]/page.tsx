@@ -1,6 +1,7 @@
-import { HEADER_TEXT } from '@/constants/styles';
+import { TEXT } from '@/constants/styles';
 import { DUMMY_NEWS } from '@/data/news';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import { use } from 'react';
 
 type Params = {
@@ -14,7 +15,7 @@ const NewsDetailsPage: React.FC<ComponentProps<Params>> = ({ params }) => {
   const newsItem = DUMMY_NEWS.find(item => item.slug === slug);
 
   if (!newsItem) {
-    return <h2>News not found</h2>;
+    notFound();
   }
 
   return (
@@ -27,13 +28,13 @@ const NewsDetailsPage: React.FC<ComponentProps<Params>> = ({ params }) => {
           height={400}
           className='rounded-md'
         />
-        <h1 className={HEADER_TEXT}>{newsItem.title}</h1>
-        <time dateTime={newsItem.date} className='text-gray-600 dark:text-gray-400 text-sm'>
+        <h1 className={TEXT.HEADER}>{newsItem.title}</h1>
+        <time dateTime={newsItem.date} className={`${TEXT.GRAY} text-sm`}>
           {newsItem.date}
         </time>
       </header>
       <hr className='my-10' />
-      <p className='text-lg leading-relaxed'>{newsItem.content}</p>
+      <p className={`${TEXT.NORMAL} text-lg leading-relaxed`}>{newsItem.content}</p>
     </article>
   );
 };

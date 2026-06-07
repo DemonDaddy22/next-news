@@ -1,5 +1,5 @@
-import { HEADER_TEXT } from '@/constants/styles';
+import { TEXT } from '@/constants/styles';
 
 export default function Home() {
-  return <h1 className={HEADER_TEXT}>Headlines</h1>;
+  return <h1 className={TEXT.HEADER}>Headlines</h1>;
 }

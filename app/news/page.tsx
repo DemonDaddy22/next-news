@@ -1,4 +1,4 @@
-import { HEADER_TEXT } from '@/constants/styles';
+import { TEXT } from '@/constants/styles';
 import { DUMMY_NEWS } from '@/data/news';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +9,7 @@ const GAP = 8;
 const NewsPage: React.FC<ComponentProps> = () => {
   return (
     <>
-      <h1 className={HEADER_TEXT}>Articles</h1>
+      <h1 className={TEXT.HEADER}>Articles</h1>
       <section
         className='py-8 flex flex-wrap items-center'
         style={{
@@ -27,7 +27,7 @@ const NewsPage: React.FC<ComponentProps> = () => {
               height={SIZE}
               className='rounded-md'
             />
-            <h3 className='text-lg font-medium mt-2'>{newsItem.title}</h3>
+            <h3 className={`${TEXT.NORMAL} text-lg font-medium mt-2`}>{newsItem.title}</h3>
           </Link>
         ))}
       </section>
