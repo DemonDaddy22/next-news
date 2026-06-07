@@ -1,20 +1,35 @@
 import { HEADER_TEXT } from '@/constants/styles';
+import { DUMMY_NEWS } from '@/data/news';
+import Image from 'next/image';
 import Link from 'next/link';
+
+const SIZE = 300;
+const GAP = 8;
 
 const NewsPage: React.FC<ComponentProps> = () => {
   return (
     <>
-      <h1 className={HEADER_TEXT}>News</h1>
-      <section className='py-8 flex flex-col gap-2'>
-        <Link href='/news/article-1' className='text-blue-500 hover:underline'>
-          Article 1
-        </Link>
-        <Link href='/news/article-2' className='text-blue-500 hover:underline'>
-          Article 2
-        </Link>
-        <Link href='/news/article-3' className='text-blue-500 hover:underline'>
-          Article 3
-        </Link>
+      <h1 className={HEADER_TEXT}>Articles</h1>
+      <section
+        className='py-8 flex flex-wrap items-center'
+        style={{
+          rowGap: `${GAP * 5}px`,
+          columnGap: `${GAP}px`,
+          maxWidth: `${SIZE * 3 + GAP * 2}px`,
+        }}
+      >
+        {DUMMY_NEWS.map(newsItem => (
+          <Link key={newsItem.id} href={`/news/${newsItem.slug}`}>
+            <Image
+              src={`/images/news/${newsItem.image}`}
+              alt={newsItem.title}
+              width={SIZE}
+              height={SIZE}
+              className='rounded-md'
+            />
+            <h3 className='text-lg font-medium mt-2'>{newsItem.title}</h3>
+          </Link>
+        ))}
       </section>
     </>
   );
