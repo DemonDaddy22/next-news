@@ -1,5 +1,5 @@
-import { TEXT } from '@/constants/styles';
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  return <h1 className={TEXT.HEADER}>Headlines</h1>;
+  redirect('/news');
 }
